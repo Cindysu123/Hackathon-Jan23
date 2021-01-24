@@ -145,3 +145,25 @@
     font-size: 150%;
     margin: 0 0 15px;
   }
+.stars_total {
+    width: 80%;
+    margin: -100px auto 50px;
+    text-align: center;
+}
+
+.total {
+    font-size: 36px;
+    color: black;
+}
+
+.stars_total .num {
+    margin: 20px auto;
+    width: 240px;
+    height: 70px;
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    background-color: #91EC82;
+    border-radius: 20px;
+    line-height: 70px;
+    font-weight: 800;
+}
