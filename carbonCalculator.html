@@ -168,6 +168,9 @@
     let houseTotal = 0;
     let mpg;
     let mileage;
+    let ccounts = 0;
+    let house2 = 0;
+    let car2 = 0;
 
     //toggle between household and food calculator
     //NOTE: will create separate page for food calculator instead
@@ -194,12 +197,15 @@
         let content = `<p class="subValue" data-subtotal=${carbonTonne} id="${questionNumber}Preview">CO2 counts  ${carbonTonne.toFixed(2).bold()} tons </p>`;
         preview.innerHTML = content;
         question.appendChild(preview);
-        calculateTotal();
+        ccounts += 1;
+        calculateTotal(ccounts);
+        if (ccounts <= 2) {
+            //find carbon only in the household
+            house2 = parseFloat(house2) + parseFloat(carbonTonne)
+        }
     }
-
-
     //calculates final total of co2
-    function calculateTotal() {
+    function calculateTotal(num) {
         let currVal;
         let subtotals = document.getElementsByClassName("subValue");
         let displayParagraph = document.getElementById("totalOutput");
@@ -212,7 +218,10 @@
 
         let content = `The total cabon emission you create based on household and transportation is: ${houseTotal.toFixed(2).bold()} tons`;
         displayParagraph.innerHTML = content;
-        console.log(houseTotal);
+        console.log("house total: " + houseTotal);
+        if (num == 10) {
+            window.location.href = 'profile.html?Total=' + houseTotal.toFixed(2) + "&house=" + house2.toFixed(2) + "&car=" + car2;
+        };
     }
 
 
@@ -249,8 +258,13 @@
             console.log(totalEmission);
             showValue('q3', totalEmission);
         }
-
+        if (ccounts == 3) {
+            car2 = parseFloat(totalEmission).toFixed(2);
+            console.log("car2" + car2);
+        }
     }
+
+
     var house = document.getElementById("houseHeader");
     var food = document.getElementById("foodHeader");
     var hp = document.getElementById("housePage");
@@ -268,7 +282,6 @@
         fp.style.display = 'block';
     })
 </script>
-
 
 </body>
 
