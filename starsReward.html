@@ -33,6 +33,21 @@
     <div class="cloud-l"><img src="Image/cloud-left.png" alt=""></div>
     <div class="cloud-r"><img src="Image/cloud-right.png" alt=""></div>
     <!-- header ends -->
+    
+
+
+    <div id="open-modal" class="modal-window">
+      <div>
+        <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+        <h1>Congrats! 🎉🎉🎉</h1>
+        <div>You just redeemed 400 stars. 
+            <br>
+            Points remaining: 200
+        </div>
+      </div>
+    </div>
+
+</div>
     <div class="content">
         <div class="box">
             <div class="picture">
@@ -40,31 +55,33 @@
             </div>
             <p class="discount">10% discount </p>
             <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <a href="#open-modal">
+            <div value=400 id="btn1" onclick="calculateStars()" class="btn">Get reward</div>
+        </a>
         </div>
         <div class="box">
             <div class="picture">
                 <img src="Image/b2.png" alt="">
             </div>
             <p class="discount">10% discount </p>
-            <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <p class="stars">650 Stars</p>
+            <div value=650 class="btn">Get reward</div>
         </div>
         <div class="box">
             <div class="picture">
                 <img src="Image/b3.png" alt="">
             </div>
             <p class="discount">10% discount </p>
-            <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <p class="stars">800 Stars</p>
+            <div value=800 class="btn">Get reward</div>
         </div>
         <div class="box">
             <div class="picture Top">
                 <img src="Image/b4.png" alt="">
             </div>
             <p class="discount">10% discount </p>
-            <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <p class="stars">800 Stars</p>
+            <div value=800 class="btn">Get reward</div>
         </div>
         <div class="box">
             <div class="picture">
@@ -72,7 +89,7 @@
             </div>
             <p class="discount">10% discount </p>
             <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <div value=400 class="btn">Get reward</div>
         </div>
         <div class="box">
             <div class="picture">
@@ -80,7 +97,7 @@
             </div>
             <p class="discount">10% discount </p>
             <p class="stars">400 Stars</p>
-            <div class="btn">Get reward</div>
+            <div value=400 class="btn">Get reward</div>
         </div>
     </div>
 
@@ -98,6 +115,34 @@
         </div>
     </div>
     <!-- footer ends  -->
+
+    <script>
+        let starQty = localStorage.getItem('stars')
+        window.onload =addVisibility();
+
+        function addVisibility(){
+        let promoButtons = document.getElementsByClassName("btn");
+        for (var i = 0; i < promoButtons.length; i++) {
+            let starsNeeded = promoButtons[i].getAttribute("value");
+            if (starQty < starsNeeded){
+                promoButtons[i].classList.add("disabled")
+                console.log('WE HAVE: '+starQty);
+                console.log('WE NEED: '+starsNeeded);
+                console.log(starsNeeded);
+        }
+        }
+        }
+
+        //document.getElementById("btn1").addEventListener("click", calculateStars());
+
+        function calculateStars(){
+            starQty -= 400;
+            localStorage.setItem('stars', starQty);
+            addVisibility();
+        }
+
+
+    </script>
 </body>
 
 </html>
