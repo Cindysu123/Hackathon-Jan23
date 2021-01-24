@@ -44,7 +44,7 @@
         <h1>Congrats! 🎉🎉🎉</h1>
         <div>You just redeemed 400 stars. 
             <br>
-            Points remaining: 200
+            <p>Points remaining: 200</p>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="content">
         <div class="stars_total">
             <div class="total">Stars available:</div>
-            <div class="num">600</div>
+            <div id=pointsRemaining class="num">600</div>
         </div>
         <div class="box">
             <div class="picture">
@@ -137,7 +137,12 @@
                 console.log(starsNeeded);
         }
         }
+        //add points remaining display
+        display = document.getElementById("pointsRemaining")
+        display.innerHTML = starQty
         }
+
+
 
         //document.getElementById("btn1").addEventListener("click", calculateStars());
 
