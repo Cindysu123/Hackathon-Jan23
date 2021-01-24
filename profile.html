@@ -48,7 +48,7 @@
         </div>
         <div class="charts">
             <div class="time_bar">
-                <ul>
+                <ul class="TB">
                     <li>Day</li>
                     <li class="current">Week</li>
                     <li>Month</li>
@@ -192,6 +192,15 @@
             alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
         }
 
+                var time = document.querySelector('.TB').querySelectorAll('li');
+        for (var i = 0; i < time.length; i++) {
+            time[i].addEventListener('mouseover', function() {
+                for (var j = 0; j < time.length; j++) {
+                    time[j].className = '';
+                }
+                this.className = 'current';
+            })
+        }
     </script>
 </body>
 
