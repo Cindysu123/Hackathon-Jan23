@@ -64,12 +64,14 @@
     border: none;
     box-sizing: border-box;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .input .sign_in_btn:hover {
     color: #91EC82;
     background-color: #fff;
     border: 2px solid #91EC82;
+    cursor: pointer;
 }
 
 .forget p {

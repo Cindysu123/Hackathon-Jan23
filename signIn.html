@@ -50,21 +50,25 @@
         <div class="input">
             <div class="userName">
                 <p>USERNAME</p>
-                <input type="text">
+                <input type="text" id="userN">
             </div>
             <div class="password">
                 <p>PASSWORD</p>
-                <input type="text">
+                <input type="password">
             </div>
-            <a href="profile.html">
-                <div class="sign_in_btn">SIGN IN</div>
-            </a>
+            <div class="sign_in_btn" onclick="gotoSignUp()" style="cursor: pointer;">SIGN IN</div>
             <a href="#" class="forget">
                 <p>Forget Your Password?</p>
             </a>
         </div>
     </div>
     <div class="cb"><img src="Image/cloud-buttom.png" alt=""></div>
+    <script>
+        function gotoSignUp() {
+            var UserN = document.getElementById("userN").value;
+            window.location.href = "profile.html?userName=" + UserN + "&image=Image/default.png";
+        }
+    </script>
 </body>
 
 </html>

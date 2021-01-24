@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="css/profile.css">
     <!-- import icon -->
     <link rel="shortcut icon" href="Image/logo.png" type="image/x-icon" />
-    <!-- import js  -->
-    <script src="js/profilePic.js"></script>
 </head>
 
 <body>
@@ -28,7 +26,6 @@
         <img id="pic" class="profile_picture" src="Image/Avatar-1.png" alt="">
         <div class="info">
             <p id="name">name</p>
-            <p>description</p>
         </div>
         <div class="left">
             <a class="notification"></a>
@@ -41,10 +38,9 @@
         <div class="starts">
              Stars Earned:
             <p class="number" id="starQty" value=600>600</p>
-            
         </div>
         <a href="starsReward.html">
-            <div class="spend">Go Spend My Stars!</div>
+            <div class="spend">Go Spend My Starts!</div>
         </a>
         <div class="b1">
             <p onclick="star();" class="point">What is stars and how to earn them?</p>
@@ -113,23 +109,6 @@
         updateStars();
 
     
-
-        function updateStars(){
-            let starQty = localStorage.getItem('stars')
-
-            document.getElementById("starQty").innerHTML = starQty;
-        }
-        
-
-        //reset star qty to 600
-        let resetStars = () => {
-            value = document.getElementById("starQty").getAttribute("value");
-            localStorage.setItem('stars', 600);
-            updateStars();
-        }
-        
-
-
         window.addEventListener('load', function() {
             document.getElementById("pic").src = getParams("image");
             document.getElementById("name").innerHTML = getParams("userName");
@@ -147,8 +126,27 @@
         function star() {
             alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
         }
+
+        
+
+    
+
+        function updateStars(){
+            let starQty = localStorage.getItem('stars')
+
+            document.getElementById("starQty").innerHTML = starQty;
+        }
+        
+
+        //reset star qty to 600
+        let resetStars = () => {
+            value = document.getElementById("starQty").getAttribute("value");
+            localStorage.setItem('stars', 600);
+            updateStars();
+        }
+        
+
     </script>
 </body>
 
 </html>
-
