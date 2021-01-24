@@ -1,0 +1,86 @@
+.body {
+    overflow: hidden;
+}
+
+.content {
+    width: 1200px;
+    height: 800px;
+    margin: -120px auto 0px;
+}
+
+.content .box {
+    width: 540px;
+    height: 540px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+    border-radius: 20px;
+}
+
+.box {
+    float: left;
+    margin-left: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.box .picture {
+    height: 280px;
+}
+
+.box img {
+    margin-top: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+}
+
+.discount {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.stars {
+    font-size: 24px;
+    color: #616161;
+    margin-bottom: 40px;
+}
+
+.btn {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 60px;
+    border-radius: 10px;
+    color: white;
+    background-color: #2097F6;
+    font-size: 24px;
+    line-height: 60px;
+}
+
+.left {
+    margin-left: 160px !important;
+}
+
+.Top {
+    padding-top: 10px;
+}
+
+.Top2 {
+    margin-top: 60px;
+}
+
+.notice {
+    width: 1200px;
+    margin: 20px auto;
+    padding-top: 20px;
+    height: 60px;
+    border-top: 2px solid #2097F6;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
