@@ -113,6 +113,7 @@
     text-align: center;
     line-height: 48px;
     color: black;
+    cursor: pointer;
 }
 
 .charts .time_bar .current {
