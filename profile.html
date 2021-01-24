@@ -144,9 +144,11 @@
               }
 
             //local storage variables
-            let transport_value = localStorage.getItem('carTotal')//getParams("car")
-            let h_value = localStorage.getItem('houseTotal')//getParams("house");
-            var totaltotal_value = (+h_value+ +transport_value)//parseFloat(getParams("Total") + 3.05)
+            let transport_value = +localStorage.getItem('carTotal')//getParams("car")
+            transport_value = transport_value.toFixed(2)
+            let h_value = +localStorage.getItem('houseTotal')//getParams("house");
+            h_value = h_value.toFixed(2)
+            var totaltotal_value = (+h_value+ +transport_value).toFixed(2)//parseFloat(getParams("Total") + 3.05)
             console.log('transportation: '+ transport_value)
             console.log(h_value)
             console.log(totaltotal_value)
@@ -187,21 +189,21 @@
             //setting up profile;
             document.getElementById("pic").src = getParams("image");
             document.getElementById("name").innerHTML = getParams("userName");
-            let transportation_value = getParams("car")
-            let house_value = getParams("house");
-            var total_value = parseFloat(getParams("Total") + 3.05)
-            console.log(transportation_value)
+            let transportation_value = transport_value;
+            let house_value = h_value;
+            var total_value = totaltotal_value
+            console.log('transport',transportation_value)
             console.log(house_value)
-            console.log('TOTAL VAL',transportation_value+house_value)
+            console.log(total_value)
 
-            //setting up graph
-            starting_val =  parseFloat(getParams("Total"))
-            if (starting_val){
-            var total_value = parseFloat(getParams("Total") + 3.05)
-            }
-            else {
-              var total_value = 0;
-            }
+            // //setting up graph
+            // starting_val =  parseFloat(getParams("Total"))
+            // if (starting_val){
+            // var total_value = parseFloat(getParams("Total") + 3.05)
+            // }
+            // else {
+            //   var total_value = 0;
+            // }
             
             
             var food_value = getParams("food");
