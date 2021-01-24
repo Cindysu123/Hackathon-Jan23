@@ -146,8 +146,15 @@
             document.getElementById("pic").src = getParams("image");
             document.getElementById("name").innerHTML = getParams("userName");
 
-            //setting up graph 
+            //setting up graph
+            starting_val =  parseFloat(getParams("Total"))
+            if (starting_val){
             var total_value = parseFloat(getParams("Total") + 3.05)
+            }
+            else {
+              var total_value = 0;
+            }
+            
             var transportation_value = getParams("car")
             var house_value = getParams("house");
             var food_value = getParams("food");
@@ -176,6 +183,10 @@
             food.innerHTML = food_value;
             var count = (parseFloat(transport.innerHTML) + parseFloat(house.innerHTML) + parseFloat(food.innerHTML)).toFixed(2);
             console.log(count);
+            if (count.isNaN()){
+              console.log('NOT EXISTS')
+              count = 0;
+            }
             total.innerHTML = count;
         })
 
