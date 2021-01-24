@@ -48,7 +48,7 @@
         </div>
         <div class="charts">
             <div class="time_bar">
-                <ul>
+                <ul class="TB">
                     <li>Day</li>
                     <li class="current">Week</li>
                     <li>Month</li>
@@ -62,23 +62,23 @@
             </div>
             <div class="diagram">
                 <div class="description">The amount of carbon emission you saved for this week is:</div>
-                <div class="number green">3.54</div>
+                <div class="number green" id="total">3.54</div>
                 <div class="ton green">tons</div>
                 <div class="bar_d">
                     <ul>
                         <li>
-                            <div class="name">Transportation</div>
-                            <div class="num">0.11</div>
+                            <div class="name" id="tg">Transportation</div>
+                            <div class="num" id="transportation">0.11</div>
                             <div class="ton">tons</div>
                         </li>
                         <li>
-                            <div class="name">Household Emissions </div>
-                            <div class="num">0.21</div>
+                            <div class="name" id="hg">Household</div>
+                            <div class="num" id="Household">0.21</div>
                             <div class="ton">tons</div>
                         </li>
                         <li>
-                            <div class="name">Food</div>
-                            <div class="num">0.14</div>
+                            <div class="name" id="fg">Food</div>
+                            <div class="num" id = "Food">3.05</div>
                             <div class="ton">tons</div>
                         </li>
                     </ul>
@@ -122,11 +122,6 @@
             }
             return null;
         };
-
-        function star() {
-            alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
-        }
-
         
 
     
@@ -145,7 +140,67 @@
             updateStars();
         }
         
+        
+        window.addEventListener('load', function() {
+            //setting up profile;
+            document.getElementById("pic").src = getParams("image");
+            document.getElementById("name").innerHTML = getParams("userName");
 
+            //setting up graph 
+            var total_value = parseFloat(getParams("Total") + 3.05)
+            var transportation_value = getParams("car")
+            var house_value = getParams("house");
+            var food_value = getParams("food");
+            var transportGraph = document.getElementById('tg');
+            var houseGraph = document.getElementById('hg');
+            var foodGraph = document.getElementById('fg');
+            var tr_length = (700 * (transportation_value / total_value)).toString() + 'px';
+            console.log(tr_length);
+            var home_length = (700 * (house_value / total_value)).toString() + 'px';
+            console.log(home_length);
+            var food_length = (700 * (food_value / total_value)).toString() + 'px';
+            console.log(food_length);
+            transportGraph.style.width = tr_length;
+            houseGraph.style.width = home_length;
+            foodGraph.style.width = food_length;
+
+            //count the total co2;
+
+            var total = document.getElementById("total")
+            total.innerHTML = total_value;
+            var transport = document.getElementById("transportation")
+            transport.innerHTML = transportation_value;
+            var house = document.getElementById("Household")
+            house.innerHTML = house_value;
+            var food = document.getElementById("Food")
+            food.innerHTML = food_value;
+            var count = (parseFloat(transport.innerHTML) + parseFloat(house.innerHTML) + parseFloat(food.innerHTML)).toFixed(2);
+            console.log(count);
+            total.innerHTML = count;
+        })
+
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+
+        function star() {
+            alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
+        }
+
+                var time = document.querySelector('.TB').querySelectorAll('li');
+        for (var i = 0; i < time.length; i++) {
+            time[i].addEventListener('mouseover', function() {
+                for (var j = 0; j < time.length; j++) {
+                    time[j].className = '';
+                }
+                this.className = 'current';
+            })
+        }
     </script>
 </body>
 

@@ -113,6 +113,7 @@
     text-align: center;
     line-height: 48px;
     color: black;
+    cursor: pointer;
 }
 
 .charts .time_bar .current {
@@ -180,11 +181,13 @@
 
 .bar_d {
     width: 90%;
-    height: 300px;
+    height: 320px;
     margin: 20px auto 10px;
     overflow: hidden;
 }
-
+.bar_d li {
+    display: block !important;
+}
 .bar_d .name {
     display: inline-block;
     margin-top: 40px;

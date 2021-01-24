@@ -67,15 +67,14 @@
                 <br>
                 <p id="totalOutput">The total carbon emission you create per year based on household and transportation: </p>
                 <div class="btn-block">
-                    <button onclick="location.href='/profile.html';calculateTotal()">Save Changes</button>
-
+                    <button onclick="location.href='/profile.html';calculateTotal(10)">Save Changes</button>
                 </div>
             </div>
             <div id="foodPage" style="display: none;">
                 <div class="content">
                     <div class="title">
                         <div class="total">The total carbon emission you save for this week‘s food is:</div>
-                        <i class="num green">3.5</i><i class="tons">tons</i>
+                        <i class="num green">3.05</i><i class="tons">tons</i>
                     </div>
                     <div class="block">
                         <div class="date">Wed/Jan 21, 17:00</div>
@@ -93,42 +92,42 @@
                         <div class="date">Wed/Jan 21, 17:00</div>
                         <div class="left">
                             <img src="Image/food2.png" alt="">
-                            <p>Biryani Pot</p>
+                            <p>VSPOT</p>
                         </div>
                         <div class="right">
-                            <p>Food name: Vegetarian Biryani </p>
+                            <p>Food name: Vegan creamy pasta </p>
                             <p class="count">Emission count:</p>
-                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                            <i class="num"> 0.002 / 5 </i><i>tons of CO2 used</i>
                         </div>
                     </div>
                     <div class="block">
                         <div class="date">Wed/Jan 21, 17:00</div>
                         <div class="left">
                             <img src="Image/food3.png" alt="">
-                            <p>Biryani Pot</p>
+                            <p>Quinoa Kitchen </p>
                         </div>
                         <div class="right">
-                            <p>Food name: Vegetarian Biryani </p>
+                            <p>Food name: Quinoa </p>
                             <p class="count">Emission count:</p>
-                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                            <i class="num"> 0.04 / 5 </i><i>tons of CO2 used</i>
                         </div>
                     </div>
                     <div class="block">
                         <div class="date">Wed/Jan 21, 17:00</div>
                         <div class="left">
                             <img src="Image/food4.png" alt="">
-                            <p>Biryani Pot</p>
+                            <p>Anthony’s Place</p>
                         </div>
                         <div class="right">
-                            <p>Food name: Vegetarian Biryani </p>
+                            <p>Food name: Lasagna </p>
                             <p class="count">Emission count:</p>
-                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                            <i class="num"> 0.003 / 5 </i><i>tons of CO2 used</i>
                         </div>
                     </div>
                     <div class="block">
                         <div class="date">Wed/Jan 21, 17:00</div>
                         <div class="left">
-                            <img src="Image/food5.png" alt="">
+                            <img src="Image/food1.png" alt="">
                             <p>Biryani Pot</p>
                         </div>
                         <div class="right">
@@ -168,6 +167,9 @@
     let houseTotal = 0;
     let mpg;
     let mileage;
+    let ccounts = 0;
+    let house2 = 0;
+    let car2 = 0;
 
     //toggle between household and food calculator
     //NOTE: will create separate page for food calculator instead
@@ -194,12 +196,15 @@
         let content = `<p class="subValue" data-subtotal=${carbonTonne} id="${questionNumber}Preview">CO2 counts  ${carbonTonne.toFixed(2).bold()} tons </p>`;
         preview.innerHTML = content;
         question.appendChild(preview);
-        calculateTotal();
+        ccounts += 1;
+        calculateTotal(ccounts);
+        if (ccounts <= 2) {
+            //find carbon only in the household
+            house2 = parseFloat(house2) + parseFloat(carbonTonne)
+        }
     }
-
-
     //calculates final total of co2
-    function calculateTotal() {
+    function calculateTotal(num) {
         let currVal;
         let subtotals = document.getElementsByClassName("subValue");
         let displayParagraph = document.getElementById("totalOutput");
@@ -212,7 +217,10 @@
 
         let content = `The total carbon emission you create per year based on household and transportation: ${houseTotal.toFixed(2).bold()} tons`;
         displayParagraph.innerHTML = content;
-        console.log(houseTotal);
+        console.log("house total: " + houseTotal);
+        if (num == 10) {
+            window.location.href = 'profile.html?Total=' + houseTotal.toFixed(2) + "&house=" + house2.toFixed(2) + "&car=" + car2 + "&food=" + 3.05;
+        };
     }
 
 
@@ -249,8 +257,13 @@
             console.log(totalEmission);
             showValue('q3', totalEmission);
         }
-
+        if (ccounts == 3) {
+            car2 = parseFloat(totalEmission).toFixed(2);
+            console.log("car2" + car2);
+        }
     }
+
+
     var house = document.getElementById("houseHeader");
     var food = document.getElementById("foodHeader");
     var hp = document.getElementById("housePage");
