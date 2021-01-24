@@ -122,11 +122,6 @@
             }
             return null;
         };
-
-        function star() {
-            alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
-        }
-
         
 
     
@@ -145,6 +140,57 @@
             updateStars();
         }
         
+        
+                window.addEventListener('load', function() {
+            //setting up profile;
+            document.getElementById("pic").src = getParams("image");
+            document.getElementById("name").innerHTML = getParams("userName");
+
+            //setting up graph 
+            var food_value = document.getElementById("Food").innerHTML;
+            console.log(food_value);
+            var total_value = parseFloat(getParams("Total") + food_value)
+            var transportation_value = getParams("car")
+            var house_value = getParams("house");
+            var transportGraph = document.getElementById('tg');
+            var houseGraph = document.getElementById('hg');
+            var foodGraph = document.getElementById('fg');
+            var tr_length = (700 * (transportation_value / total_value)).toString() + 'px';
+            console.log(tr_length);
+            var home_length = (700 * (house_value / total_value)).toString() + 'px';
+            console.log(home_length);
+            var food_length = (700 * (food_value / total_value)).toString() + 'px';
+            console.log(food_length);
+            transportGraph.style.width = tr_length;
+            houseGraph.style.width = home_length;
+            foodGraph.style.width = food_length;
+
+            //count the total co2;
+
+            var total = document.getElementById("total")
+            total.innerHTML = total_value;
+            var transport = document.getElementById("transportation")
+            transport.innerHTML = transportation_value;
+            var house = document.getElementById("Household")
+            house.innerHTML = house_value;
+            var food = document.getElementById("Food")
+            var count = (parseFloat(transport.innerHTML) + parseFloat(house.innerHTML) + parseFloat(food.innerHTML)).toFixed(2);
+            console.log(count);
+            total.innerHTML = count;
+        })
+
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+
+        function star() {
+            alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
+        }
 
     </script>
 </body>
