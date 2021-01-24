@@ -185,7 +185,7 @@
     overflow: hidden;
 }
 .bar_d li {
-    display: block;
+    display: block !important;
 }
 .bar_d .name {
     display: inline-block;
