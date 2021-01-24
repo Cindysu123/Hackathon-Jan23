@@ -60,30 +60,60 @@
                 <div class="detail">Jan 17-23, 2021</div>
                 <a href="#" class="r"></a>
             </div>
-            <div class="diagram">
-                <div class="description">The amount of carbon emission you saved for this week is:</div>
-                <div class="number green" id="total">3.54</div>
-                <div class="ton green">tons</div>
-                <div class="bar_d">
-                    <ul>
-                        <li>
-                            <div class="name" id="tg">Transportation</div>
-                            <div class="num" id="transportation">0.11</div>
-                            <div class="ton">tons</div>
-                        </li>
-                        <li>
-                            <div class="name" id="hg">Household</div>
-                            <div class="num" id="Household">0.21</div>
-                            <div class="ton">tons</div>
-                        </li>
-                        <li>
-                            <div class="name" id="fg">Food</div>
-                            <div class="num" id = "Food">3.05</div>
-                            <div class="ton">tons</div>
-                        </li>
-                    </ul>
-                </div>
+
+
+            
+
+          <div class="diagram">
+            <div class="description">The amount of carbon emission you saved for this week is:</div>
+            <!-- had to change id of this  -->
+            <div class="number green" id="total1">3.05</div>
+            <div class="ton green">tons</div>
+            <div class="bar_d">
+                <ul>
+                  <!-- <li>
+                    <div class="name" id="tg">Transportation</div>
+                    <div class="num" id="transportation">0.11</div>
+                    <div class="ton">tons</div>
+                </li> -->
+                <!-- <li>
+                  <div class="name" id="hg">Household</div>
+                  <div class="num" id="Household">0.21</div>
+                  <div class="ton">tons</div>
+              </li> -->
+
+                
+                    <li>
+                        <div class="name" id="fg">Food</div>
+                        <div class="num" id = "Food">3.05</div>
+                        <div class="ton">tons</div>
+                    </li>
+                </ul>
             </div>
+        </div>
+
+        <div class="diagram">
+          <div class="description">The amount of carbon emission per year:</div>
+          <div class="number green" id="total">3.54</div>
+          <div class="ton green">tons</div>
+          <div class="bar_d">
+              <ul>
+                  <li>
+                      <div class="name" id="tg">Transportation</div>
+                      <div class="num" id="transportation">0.11</div>
+                      <div class="ton">tons</div>
+                  </li>
+              </ul>
+              
+                  <li>
+                      <div class="name" id="hg">Household</div>
+                      <div class="num" id="Household">0.21</div>
+                      <div class="ton">tons</div>
+                  </li>
+
+              </ul>
+          </div>
+      </div>
         </div>
         <a href="carbonCalculator.html">
             <div class="btn_cal">Calculate your carbon footprint here
@@ -106,12 +136,29 @@
 
 
     <script type="text/javascript">
+          //reset star qty to 600
+          let resetStars = () => {
+                  value = document.getElementById("starQty").getAttribute("value");
+                  localStorage.setItem('stars', 600);
+                  updateStars();
+              }
+
+            //local storage variables
+            let transport_value = localStorage.getItem('carTotal')//getParams("car")
+            let h_value = localStorage.getItem('houseTotal')//getParams("house");
+            var totaltotal_value = (+h_value+ +transport_value)//parseFloat(getParams("Total") + 3.05)
+            console.log('transportation: '+ transport_value)
+            console.log(h_value)
+            console.log(totaltotal_value)
+            //end of local storage variables
+
         updateStars();
 
     
         window.addEventListener('load', function() {
             document.getElementById("pic").src = getParams("image");
             document.getElementById("name").innerHTML = getParams("userName");
+            
         })
 
         function getParams(key) {
@@ -133,18 +180,19 @@
         }
         
 
-        //reset star qty to 600
-        let resetStars = () => {
-            value = document.getElementById("starQty").getAttribute("value");
-            localStorage.setItem('stars', 600);
-            updateStars();
-        }
+        
         
         
         window.addEventListener('load', function() {
             //setting up profile;
             document.getElementById("pic").src = getParams("image");
             document.getElementById("name").innerHTML = getParams("userName");
+            let transportation_value = getParams("car")
+            let house_value = getParams("house");
+            var total_value = parseFloat(getParams("Total") + 3.05)
+            console.log(transportation_value)
+            console.log(house_value)
+            console.log('TOTAL VAL',transportation_value+house_value)
 
             //setting up graph
             starting_val =  parseFloat(getParams("Total"))
@@ -155,8 +203,7 @@
               var total_value = 0;
             }
             
-            var transportation_value = getParams("car")
-            var house_value = getParams("house");
+            
             var food_value = getParams("food");
             var transportGraph = document.getElementById('tg');
             var houseGraph = document.getElementById('hg');
@@ -188,6 +235,9 @@
               count = 0;
             }
             total.innerHTML = count;
+            let houseTotal = localStorage.getItem('houseTotal');
+            let carTotal = localStorage.getItem('carTotal')
+            total.innerHTML = houseTotal+carTotal.toFixed(2);
         })
 
         function getParams(key) {

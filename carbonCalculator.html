@@ -67,7 +67,7 @@
                 <br>
                 <p id="totalOutput">The total carbon emission you create per year based on household and transportation: </p>
                 <div class="btn-block">
-                    <button onclick="location.href='/profile.html';calculateTotal(10)">Save Changes</button>
+                    <button onclick="location.href='/profile.html';calculateTotal(10);saveElectric();saveGas();saveCar()">Save Changes</button>
                 </div>
             </div>
             <div id="foodPage" style="display: none;">
@@ -171,6 +171,15 @@
     let house2 = 0;
     let car2 = 0;
 
+    function saveElectric(){
+        let electricTotal = +document.getElementById("q1Preview").getAttribute("data-subtotal");
+        let gasTotal = +document.getElementById("q2Preview").getAttribute("data-subtotal");
+        localStorage.setItem('houseTotal', electricTotal+gasTotal);
+    }
+
+
+    
+
     //toggle between household and food calculator
     //NOTE: will create separate page for food calculator instead
     // function togglePage(requestedPage, otherPage) {
@@ -213,6 +222,7 @@
             currVal = subtotals[i].getAttribute("data-subtotal");
             console.log(currVal)
             houseTotal += +currVal;
+        console.log(houseTotal);
         }
 
         let content = `The total carbon emission you create per year based on household and transportation: ${houseTotal.toFixed(2).bold()} tons`;
@@ -222,6 +232,7 @@
             window.location.href = 'profile.html?Total=' + houseTotal.toFixed(2) + "&house=" + house2.toFixed(2) + "&car=" + car2 + "&food=" + 3.05;
         };
     }
+
 
 
 
@@ -256,6 +267,7 @@
             totalEmission = ((mileage / mpg) * .0143)
             console.log(totalEmission);
             showValue('q3', totalEmission);
+            localStorage.setItem('carTotal', totalEmission);
         }
         if (ccounts == 3) {
             car2 = parseFloat(totalEmission).toFixed(2);
