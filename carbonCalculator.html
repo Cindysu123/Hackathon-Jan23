@@ -65,7 +65,7 @@
                 <br>
 
                 <br>
-                <p id="totalOutput">The total carbon emission you create based on household and transportation is: </p>
+                <p id="totalOutput">The total carbon emission you create per year based on household and transportation: </p>
                 <div class="btn-block">
                     <button onclick="location.href='/profile.html';calculateTotal()">Save Changes</button>
 
@@ -210,7 +210,7 @@
             houseTotal += +currVal;
         }
 
-        let content = `The total cabon emission you create based on household and transportation is: ${houseTotal.toFixed(2).bold()} tons`;
+        let content = `The total carbon emission you create per year based on household and transportation: ${houseTotal.toFixed(2).bold()} tons`;
         displayParagraph.innerHTML = content;
         console.log(houseTotal);
     }
