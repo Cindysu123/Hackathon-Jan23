@@ -1,0 +1,241 @@
+html,
+body {
+    min-height: 100%;
+}
+
+body,
+div,
+form,
+input,
+p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 28px;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h4 {
+    margin: 25px 0 5px;
+}
+
+.Header {
+    margin-top: -150px;
+    display: flex;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+#houseHeader {
+    flex: 1;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    padding-bottom: 20px;
+}
+
+#foodHeader {
+    flex: 1;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.clearfix {
+    clear: both
+}
+
+#housePage {
+    width: 1100px;
+    margin: 0px auto;
+}
+
+#housePage h4 {
+    font-size: 32px;
+    color: black;
+    font-weight: normal;
+}
+
+#housePage>div {
+    margin-top: 80px;
+}
+
+.testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 3px;
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+}
+
+input {
+    width: auto;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.question-answer label {
+    display: block;
+}
+
+.question-answer {
+    font-size: 24px;
+    color: black;
+}
+
+.question-answer label {
+    margin: 20px 0px;
+}
+
+textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+}
+
+textarea:hover {
+    outline: none;
+    border: 1px solid #095484;
+}
+
+.btn-block {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 20px;
+    background-color: #91EC82;
+    color: #fff;
+    cursor: pointer;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+button:hover {
+    background-color: #9EFF8E;
+}
+
+.current {
+    border-bottom: 4px solid #000AFF;
+}
+
+#totalOutput {
+    float: left;
+    margin-left: 80px;
+    font-size: 24px;
+    color: black;
+}
+
+#foodPage .content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#foodPage .content .title {
+    width: 65%;
+    margin: 0 auto;
+}
+
+#foodPage .content .title .total {
+    font-size: 30px;
+    color: black;
+}
+
+#foodPage .content .title .num {
+    margin-top: 50px;
+    margin-left: 40%;
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 100px;
+}
+
+.tons {
+    font-size: 24px;
+}
+
+.block {
+    margin-top: 40px;
+    width: 100%;
+    height: 480px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 30px 5px rgba(32, 53, 246, 0.42);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.date {
+    padding-left: 20px;
+    width: 100%;
+    height: 52px;
+    background-color: #91EC82;
+    color: #fff;
+    font-size: 28px;
+    line-height: 52px;
+}
+
+.left {
+    float: left;
+    overflow: hidden;
+}
+
+.right {
+    float: left;
+    overflow: hidden;
+}
+
+.left img {
+    margin: 30px 40px;
+}
+
+.left p {
+    font-size: 36px;
+    color: black;
+    margin: 20px 40px;
+}
+
+.right p {
+    font-size: 36px;
+    color: black;
+    margin: 20px 40px;
+}
+
+.right .count {
+    margin-top: 80px;
+}
+
+.right i {
+    display: inline-block;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: black;
+}
+
+.right .num {
+    margin-left: 40px;
+    font-size: 36px;
+    color: #5baf4e;
+}
