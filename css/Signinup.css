@@ -64,6 +64,7 @@
     border: none;
     box-sizing: border-box;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .input .sign_in_btn:hover {
