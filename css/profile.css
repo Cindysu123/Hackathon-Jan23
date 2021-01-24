@@ -184,7 +184,9 @@
     margin: 20px auto 10px;
     overflow: hidden;
 }
-
+.bar_d li {
+    display: block;
+}
 .bar_d .name {
     display: inline-block;
     margin-top: 40px;
