@@ -2,8 +2,6 @@
     overflow: hidden;
 }
 
-
-
 .content {
     width: 1200px;
     height: 800px;
@@ -61,9 +59,9 @@
 }
 
 .disabled {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
 
 .left {
@@ -92,6 +90,7 @@
     line-height: 0;
     font-size: 0
 }
+
 .modal-window {
     position: fixed;
     background-color: rgba(200, 200, 200, 0.75);
@@ -105,27 +104,40 @@
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-  }
-  
-  .modal-window:target {
+}
+
+.modal-window:target {
     opacity: 1;
     pointer-events: auto;
-  }
-  
-  .modal-window>div {
-    width: 400px;
+}
+
+.modal-window>div {
+    width: 500px;
+    height: 200px;
     position: relative;
     margin: 10% auto;
     padding: 2rem;
     background: #fff;
-    color: #444;
-  }
-  
-  .modal-window header {
+    font-size: 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 2px 30px 5px rgba(32, 53, 246, 0.42);
+}
+
+.modal-window>div h1 {
+    color: black;
+    text-align: center;
+}
+
+.modal-window>p {
+    margin-top: 20px;
+}
+
+.modal-window header {
     font-weight: bold;
-  }
-  
-  .modal-close {
+}
+
+.modal-close {
     color: #aaa;
     line-height: 50px;
     font-size: 80%;
@@ -135,16 +147,17 @@
     top: 0;
     width: 70px;
     text-decoration: none;
-  }
-  
-  .modal-close:hover {
+}
+
+.modal-close:hover {
     color: #000;
-  }
-  
-  .modal-window h1 {
+}
+
+.modal-window h1 {
     font-size: 150%;
     margin: 0 0 15px;
-  }
+}
+
 .stars_total {
     width: 80%;
     margin: -100px auto 50px;
