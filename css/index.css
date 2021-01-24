@@ -13,6 +13,8 @@
 }
 
 .floor {
+    width: 1300px;
+    margin: 0 auto;
     z-index: 999;
 }
 
