@@ -44,8 +44,6 @@
         </a>
         <div class="b1">
             <p onclick="star();" class="point">What is stars and how to earn them?</p>
-            <p onclick="resetStars()"class="point">Update Stars</p>
-            <p onclick="resetStars()"class="point">Update Stars</p>
         </div>
         <div class="charts">
             <div class="time_bar">
@@ -129,8 +127,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Reset stars</a></li>
-                <li><a href="#">Reset Dashboard</a></li>
+                <li><a onclick="resetStars()" href="#">Reset stars</a></li>
+                <li><a onclick="resetDashboard()"href="#">Reset Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -145,6 +143,15 @@
                   localStorage.setItem('stars', 600);
                   updateStars();
               }
+          
+          //reset dashboard numbers to 0
+          let resetDashboard = () => {
+            localStorage.setItem('carTotal', 0);
+            localStorage.setItem('houseTotal',0);
+            location.reload();
+
+
+          }
 
             //local storage variables
             let transport_value = +localStorage.getItem('carTotal')//getParams("car")
