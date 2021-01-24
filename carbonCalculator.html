@@ -51,14 +51,14 @@
                 <div>
                     <h4>Transportation type and car mileage (per year):</h4>
                     <div id="q3" class="question-answer">
-                        <label><input type="radio" value="46" onclick="showValue('q3', 35)" name="carType" />Motorcycle (46 mpg)</label>
-                        <label><input type="radio" value="35" onclick="showValue('q3', 46)" name="carType" />Sedan (35 mpg)</label>
-                        <label><input type="radio" value="52" onclick="showValue('q2', 2.44)" name="carType" />SUV (52 mpg)</label>
+                        <label><input type="radio" value="35" onclick="calcCarEmission()" name="carType" />Motorcycle (46 mpg)</label>
+                        <label><input type="radio" value="46" onclick="calcCarEmission()" name="carType" />Sedan (35 mpg)</label>
+                        <label><input type="radio" value="52" onclick="calcCarEmission()" name="carType" />SUV (52 mpg)</label>
                         <h4>Enter actual mpg:</h4>
 
-                        <label><input type="radio" value="6000" onclick="calcMileage()" name="mileage" />Low (6,000 miles)</label>
-                        <label><input type="radio" value="none" onclick="calcMileage()" name="mileage" />Average (9,000 miles)</label>
-                        <label><input type="radio" value="none" onclick="calcMileage()" name="mileage" />High (12,000+ miles)</label>
+                        <label><input type="radio" value="6000" onclick="calcCarEmission()" name="mileage" />Low (6,000 miles)</label>
+                        <label><input type="radio" value="9000" onclick="calcCarEmission()" name="mileage" />Average (9,000 miles)</label>
+                        <label><input type="radio" value="12000" onclick="calcCarEmission()" name="mileage" />High (12,000+ miles)</label>
                     </div>
                 </div>
                 <div id="q3" class="clearfix"></div>
