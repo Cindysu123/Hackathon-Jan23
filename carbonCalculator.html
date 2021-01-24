@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Carbon Emission Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/calculator.css">
+</head>
+
+<body>
+    <!-- header starts  -->
+    <div class="header">
+        <a href="profile.html">
+            <h1 class="sub_t">
+                Carbon Emission Calculator
+            </h1>
+        </a>
+    </div>
+    <!-- header ends -->
+
+    <div class="testbox">
+        <form onsubmit="return false">
+            <div class="Header">
+                <p id="houseHeader" onclick="togglePage('housePage','foodPage')" class="current">Household Emissions and Transportation</p>
+                <p id="foodHeader" onclick="togglePage('foodPage','housePage')">Food Consumption</p>
+            </div>
+            <div class="clearfix"></div>
+            <div id="foodPage" style="display:none">insert food calc</div>
+            <div id="housePage">
+                <div>
+                    <h4>Electricity used in your household:</h4>
+                    <div id="q1" class="question-answer">
+                        <label><input type="radio" value="2.44" onclick="showValue('q1', 0.93)" name="houseElectric" />Small house / flat (3,000 kWh)</label>
+                        <label><input type="radio" value="3.65" onclick="showValue('q1', 1.48)" name="houseElectric" />Medium (4,800 kWh)</label>
+                        <label><input type="radio" value="5.48" onclick="showValue('q1', 2.16)" name="houseElectric" />Large house (7,000 kWh)</label>
+                        <label><input type="radio" value="1.01" onclick="showValue('q1', 0.62)" name="houseElectric" />Hall of residence (2,000 kWh)</label>
+                    </div>
+                </div>
+                <div>
+                    <h4>Gas used in your household:</h4>
+                    <div id="q2" class="question-answer">
+                        <label><input type="radio" value="2.44" onclick="showValue('q2', 2.44)" name="houseGas" />Once a week</label>
+                        <label><input type="radio" value="3.65" onclick="showValue('q2', 3.65)" name="houseGas" />2 or 3 times a month</label>
+                        <label><input type="radio" value="5.48" onclick="showValue('q2', 5.48)" name="houseGas" />Once a month</label>
+                        <label><input type="radio" value="1.01" onclick="showValue('q2', 1.01)" name="houseGas" />Less than once a month</label>
+                    </div>
+                </div>
+                <div>
+                    <h4>Transportation type and car mileage (per year):</h4>
+                    <div id="q3" class="question-answer">
+                        <label><input type="radio" value="46" onclick="showValue('q3', 35)" name="carType" />Motorcycle (46 mpg)</label>
+                        <label><input type="radio" value="35" onclick="showValue('q3', 46)" name="carType" />Sedan (35 mpg)</label>
+                        <label><input type="radio" value="52" onclick="showValue('q2', 2.44)" name="carType" />SUV (52 mpg)</label>
+                        <h4>Enter actual mpg:</h4>
+
+                        <label><input type="radio" value="6000" onclick="calcMileage()" name="mileage" />Low (6,000 miles)</label>
+                        <label><input type="radio" value="none" onclick="calcMileage()" name="mileage" />Average (9,000 miles)</label>
+                        <label><input type="radio" value="none" onclick="calcMileage()" name="mileage" />High (12,000+ miles)</label>
+                    </div>
+                </div>
+                <div id="q3" class="clearfix"></div>
+            </div>
+            <br>
+
+            <br>
+            <p id="totalOutput">The total carbon emission you create based on household and transportation is: </p>
+    </div>
+
+    <div class="btn-block">
+        <button onclick="calculateTotal()" href="/">Save Changes</button>
+
+    </div>
+    </form>
+    </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+<script>
+    let rbs;
+    let selectedValue;
+    let houseTotal = 0;
+    let mpg;
+    let mileage;
+
+    //toggle between household and food calculator
+    //NOTE: will create separate page for food calculator instead
+    function togglePage(requestedPage, otherPage) {
+        console.log('IN TOGGLE');
+        requestedPage = document.getElementById(requestedPage);
+        otherPage = document.getElementById(otherPage);
+        if (requestedPage.style.display == "none") {
+            console.log('IN IF')
+            requestedPage.style.display = "block";
+            otherPage.style.display = "none";
+        }
+    }
+
+    //displays subtotal underneath question
+    function showValue(questionNumber, carbonTonne) {
+        let existingPreview = document.getElementById(`${questionNumber}Preview`);
+        let question = document.getElementById(questionNumber);
+        let preview = document.createElement('p');
+        if (existingPreview) {
+            existingPreview.remove();
+        }
+
+        let content = `<p class="subValue" data-subtotal=${carbonTonne} id="${questionNumber}Preview">CO2 counts  ${carbonTonne.toFixed(2).bold()} tons </p>`;
+        preview.innerHTML = content;
+        question.appendChild(preview);
+        calculateTotal();
+    }
+
+
+    //calculates final total of co2
+    function calculateTotal() {
+        let currVal;
+        let subtotals = document.getElementsByClassName("subValue");
+        let displayParagraph = document.getElementById("totalOutput");
+        houseTotal = 0;
+        for (var i = 0; i < subtotals.length; i++) {
+            currVal = subtotals[i].getAttribute("data-subtotal");
+            console.log(currVal)
+            houseTotal += +currVal;
+        }
+
+        let content = `The total cabon emission you create based on household and transportation is: ${houseTotal.toFixed(2).bold()} tons`;
+        displayParagraph.innerHTML = content;
+        console.log(houseTotal);
+    }
+
+
+
+    //checks if both mileage and transport type are selected and set values
+    function checkBoth() {
+        rbs = document.querySelectorAll('input[name="carType"]');
+        for (let rb of rbs) {
+            if (rb.checked) {
+                mpg = +rb.getAttribute("value")
+                console.log(mpg);
+                break;
+            }
+        }
+        rbs = document.querySelectorAll('input[name="mileage"]');
+        for (let rb of rbs) {
+            if (rb.checked) {
+                mileage = +rb.getAttribute("value")
+                console.log(mileage);
+                break;
+            }
+        }
+        return [mpg, mileage]
+    }
+
+    //calculates car emissions
+    function calcCarEmission() {
+        let totalEmission;
+        result = checkBoth()
+        mpg = result[0];
+        mileage = result[1]
+        if (mpg && mileage) {
+            totalEmission = ((mileage / mpg) * .0143)
+            console.log(totalEmission);
+            showValue('q3', totalEmission);
+        }
+
+    }
+</script>
+
+
+</body>
+
+</html>

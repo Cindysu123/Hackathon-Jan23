@@ -1,0 +1,97 @@
+.cloud-l {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    z-index: -99;
+}
+
+.cloud-r {
+    position: absolute;
+    top: 250px;
+    right: 0;
+    z-index: -99;
+}
+
+.floor {
+    z-index: 999;
+}
+
+.f1,
+.f2,
+.f3 {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 100px;
+}
+
+.f1 .content,
+.f2 .content,
+.f3 .content,
+.f4 .content {
+    width: 500px;
+    height: 200px;
+    padding: 100px 60px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 33px rgba(36, 32, 246, 0.41);
+    border-radius: 40px;
+    z-index: 999;
+}
+
+.f4 .content {
+    height: 400px;
+}
+
+.f1 .content {
+    float: left;
+    margin-left: 100px;
+}
+
+.f2 .content {
+    float: right;
+    margin-right: 100px;
+}
+
+.f3 .content {
+    float: left;
+    margin-left: 100px;
+}
+
+.f4 .content {
+    float: right;
+    margin-right: 100px;
+}
+
+.f1 .content .title,
+.f2 .content .title,
+.f3 .content .title,
+.f4 .content .title {
+    color: black;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.f1 .content .description,
+.f2 .content .description,
+.f3 .content .description,
+.f4 .content .description {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.f1 img,
+.f3 img {
+    margin-left: 50px;
+}
+
+.f2 img {
+    margin-left: 50px;
+}
+
+.f4 img {
+    margin-left: 80px;
+    margin-top: 130px;
+}
+
+.f4 p a {
+    color: #0e3aff;
+}

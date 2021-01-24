@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title>Sky’s The Limit</title>
+    <!-- intro -->
+    <meta name="description" content="A nifty application for those who want to remain environmentally aware about their actions.">
+    <!-- impor base.css-->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- import common.css-->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- import index.css-->
+    <link rel="stylesheet" href="css/profile.css">
+    <!-- import icon -->
+    <link rel="shortcut icon" href="Image/logo.png" type="image/x-icon" />
+    <!-- import js  -->
+    <script src="js/profilePic.js"></script>
+</head>
+
+<body>
+    <!-- top starts  -->
+    <div class="top">
+        <img id="pic" class="profile_picture" src="Image/Avatar-1.png" alt="">
+        <div class="info">
+            <p id="name">name</p>
+            <p>description</p>
+        </div>
+        <div class="left">
+            <a class="notification"></a>
+            <a class="settings"></a>
+        </div>
+    </div>
+    <!-- top ends  -->
+    <!-- content starts  -->
+    <div class="content">
+        <div class="starts">
+             Stars Earned:
+            <p class="number">100</p>
+        </div>
+        <a href="starsReward.html">
+            <div class="spend">Go Spend My Starts!</div>
+        </a>
+        <div class="b1">
+            <p onclick="star();" class="point">What is stars and how to earn them?</p>
+        </div>
+        <div class="charts">
+            <div class="time_bar">
+                <ul>
+                    <li>Day</li>
+                    <li class="current">Week</li>
+                    <li>Month</li>
+                    <li>Year</li>
+                </ul>
+            </div>
+            <div class="date">
+                <a href="#" class="l"></a>
+                <div class="detail">Jan 17-23, 2021</div>
+                <a href="#" class="r"></a>
+            </div>
+            <div class="diagram">
+                <div class="description">The amount of carbon emission you saved for this week is:</div>
+                <div class="number green">3.54</div>
+                <div class="ton green">tons</div>
+                <div class="bar_d">
+                    <ul>
+                        <li>
+                            <div class="name">Transportation</div>
+                            <div class="num">0.11</div>
+                            <div class="ton">tons</div>
+                        </li>
+                        <li>
+                            <div class="name">Household Emissions </div>
+                            <div class="num">0.21</div>
+                            <div class="ton">tons</div>
+                        </li>
+                        <li>
+                            <div class="name">Food</div>
+                            <div class="num">0.14</div>
+                            <div class="ton">tons</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="carbonCalculator.html">
+            <div class="btn_cal">Calculate your carbon footprint here
+            </div>
+        </a>
+    </div>
+    <!-- content ends  -->
+    <!-- footer starts  -->
+    <div class="footer">
+        <div class="info">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- footer ends  -->
+
+
+
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            document.getElementById("pic").src = getParams("image");
+            document.getElementById("name").innerHTML = getParams("userName");
+        })
+
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+
+        function star() {
+            alert("Star points are acquired through ordering produce or participating in environmentally-sound tasks, to which fifty and one hundred points are given respectively. For every four hundred star points earned individuals will be able to choose their reward.")
+        }
+    </script>
+</body>
+
+</html>

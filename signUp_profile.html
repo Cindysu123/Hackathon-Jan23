@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title>Sky’s The Limit</title>
+    <!-- intro -->
+    <meta name="description" content="A nifty application for those who want to remain environmentally aware about their actions.">
+    <!-- impor base.css-->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- import common.css-->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- import index.css-->
+    <link rel="stylesheet" href="css/Signinup.css">
+    <!-- import icon -->
+    <link rel="shortcut icon" href="Image/logo.png" type="image/x-icon" />
+    <!-- import js -->
+    <script src="js/profilePic.js"></script>
+</head>
+
+<body>
+    <!-- top starts -->
+    <div class="top">
+        <a href="#" title="Back to the top"><img src="Image/logo.png" alt=""></a>
+        <div class="signUp"><a href="index.html">Back</a></div>
+    </div>
+    <!-- top ends -->
+
+    <!-- header starts  -->
+    <div class="header">
+        <h1 class="title">
+            Sky's The Limit
+        </h1>
+        <p class="subtitle">
+            A nifty application for those who want to remain environmentally aware about their actions
+        </p>
+    </div>
+    <!-- header ends -->
+
+    <div class="sign_in">
+        <div class="p_title">Hello
+            <p id="Uname">Username</p>
+        </div>
+        <p class="choose">Please choose one below as your profile picture</p>
+        <div class="avatar">
+            <ul class="avatarList">
+                <li>
+                    <img src="Image/Avatar-1.png" alt="" onclick="gotoProfile(this);">
+                </li>
+                <li>
+                    <img src="Image/Avatar-2.png" alt="" onclick="gotoProfile(this);">
+                </li>
+                <li>
+                    <img src="Image/Avatar-3.png" alt="" onclick="gotoProfile(this);">
+                </li>
+                <li>
+                    <img src="Image/Avatar-4.png" alt="" onclick="gotoProfile(this);">
+                </li>
+                <li>
+                    <img src="Image/Avatar-5.png" alt="" onclick="gotoProfile(this);">
+                </li>
+                <li>
+                    <a href="#"><img src="Image/Avatar-6.png" alt="" onclick="gotoProfile(this);"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="Image/Avatar-7.png" alt="" onclick="gotoProfile(this);"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="Image/Avatar-8.png" alt="" onclick="gotoProfile(this);"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="skip" onclick="skip(this);">Skip>></div>
+    </div>
+    <div class="cb"><img src="Image/cloud-buttom.png" alt=""></div>
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById("Uname").innerHTML = getParams("userName");
+        })
+
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+
+        function gotoProfile(params) {
+            var src = params.getAttribute('src');
+            console.log(src);
+            window.location.href = "profile.html?userName=" + getParams("userName") + "&image=" + src;
+        }
+
+        function skip(params) {
+            window.location.href = "profile.html?userName=" + getParams("userName") + "&image=Image/default.png";
+        }
+    </script>
+</body>
+
+</html>

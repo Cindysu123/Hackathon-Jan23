@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title>Sky’s The Limit</title>
+    <!-- intro -->
+    <meta name="description" content="A nifty application for those who want to remain environmentally aware about their actions.">
+    <!-- impor base.css-->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- import common.css-->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- import index.css-->
+    <link rel="stylesheet" href="css/Signinup.css">
+    <!-- import icon -->
+    <link rel="shortcut icon" href="Image/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- top starts -->
+    <div class="top">
+        <a href="#" title="Back to the top"><img src="Image/logo.png" alt=""></a>
+        <div class="signUp"><a href="index.html">Back</a></div>
+    </div>
+    <!-- top ends -->
+
+    <!-- header starts  -->
+    <div class="header">
+        <h1 class="title">
+            Sky's The Limit
+        </h1>
+        <p class="subtitle">
+            A nifty application for those who want to remain environmentally aware about their actions
+        </p>
+    </div>
+    <!-- header ends -->
+
+    <div class="sign_in">
+        <div class="sign_title">
+            <a href="signIn.html" style="display: block; width: 50%;">
+                <div class="si">LOG IN</div>
+            </a>
+            <div class="su current">SIGN UP</div>
+        </div>
+        <div class="input">
+            <div class="userName">
+                <p>USERNAME</p>
+                <input id="userN" type="text">
+            </div>
+            <div class="userName">
+                <p> EMAIL</p>
+                <input type="text">
+            </div>
+            <div class="password">
+                <p>PASSWORD</p>
+                <input type="text">
+            </div>
+            <div class="password">
+                <p>CONFIRM PASSWORD</p>
+                <input type="text">
+            </div>
+            <div class="sign_in_btn" onclick="gotoSignUp()">SIGN UP</div>
+        </div>
+    </div>
+    <div class="cb"><img src="Image/cloud-buttom.png" alt=""></div>
+    <script>
+        function gotoSignUp() {
+            var UserN = document.getElementById("userN").value;
+            console.log(UserN);
+            window.location.href = "signUp_profile.html?userName=" + UserN;
+        }
+    </script>
+</body>
+
+</html>

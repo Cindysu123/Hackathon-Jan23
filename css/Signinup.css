@@ -1,0 +1,129 @@
+.sign_in {
+    margin: -200px auto 0px;
+    width: 1200px;
+    height: 700px;
+    background-color: white;
+    box-shadow: 0px 4px 30px #91EC82;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.sign_title {
+    width: 80%;
+    margin: 40px auto;
+    height: 30px;
+    display: flex;
+}
+
+.si,
+.su {
+    flex: 1;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.current {
+    border-bottom: 2px solid royalblue;
+}
+
+.input {
+    margin: 50px auto;
+    width: 800px;
+    height: 500px;
+}
+
+.userName,
+.password {
+    width: 100%;
+    height: 100px;
+    font-size: 20px;
+}
+
+.input input {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding-left: 25px;
+}
+
+.input .sign_in_btn {
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 44px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: #91EC82;
+    border-radius: 44px;
+    text-align: center;
+    line-height: 44px;
+    border: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.input .sign_in_btn:hover {
+    color: #91EC82;
+    background-color: #fff;
+    border: 2px solid #91EC82;
+}
+
+.forget p {
+    margin-top: 50px;
+    margin-left: 50%;
+    margin-left: 50%;
+    transform: translateX(-20%);
+}
+
+.cb {
+    position: absolute;
+    top: 750px;
+    z-index: -99;
+}
+
+.p_title {
+    margin-top: 20px;
+    font-size: 48px;
+    text-align: center;
+    color: #6b81ff;
+}
+
+.p_title p {
+    display: inline-block;
+}
+
+.choose {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #6b81ff;
+}
+
+.avatar {
+    width: 800px;
+    height: 900px;
+    margin-top: 30px;
+    margin-left: 270px;
+    overflow: hidden;
+}
+
+.avatar ul {
+    margin-bottom: 20px;
+}
+
+.avatar li {
+    margin: 20px;
+}
+
+.skip {
+    font-size: 24px;
+    text-align: center;
+    color: #6b81ff;
+    position: absolute;
+    top: 1010px;
+    right: 430px;
+}
