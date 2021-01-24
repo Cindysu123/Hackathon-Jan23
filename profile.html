@@ -45,6 +45,7 @@
         <div class="b1">
             <p onclick="star();" class="point">What is stars and how to earn them?</p>
             <p onclick="resetStars()"class="point">Update Stars</p>
+            <p onclick="resetStars()"class="point">Update Stars</p>
         </div>
         <div class="charts">
             <div class="time_bar">
@@ -128,6 +129,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="#">Reset stars</a></li>
+                <li><a href="#">Reset Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -187,8 +190,8 @@
         
         window.addEventListener('load', function() {
             //setting up profile;
-            document.getElementById("pic").src = getParams("image");
-            document.getElementById("name").innerHTML = getParams("userName");
+            document.getElementById("pic").src = "Image/Avatar-1.png"//getParams("image");
+            document.getElementById("name").innerHTML = "Celina"//getParams("userName");
             let transportation_value = transport_value;
             let house_value = h_value;
             var total_value = totaltotal_value
@@ -206,7 +209,7 @@
             // }
             
             
-            var food_value = getParams("food");
+            var food_value = 3.05//getParams("food");
             var transportGraph = document.getElementById('tg');
             var houseGraph = document.getElementById('hg');
             var foodGraph = document.getElementById('fg');
