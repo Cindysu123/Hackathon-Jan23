@@ -147,11 +147,10 @@
             document.getElementById("name").innerHTML = getParams("userName");
 
             //setting up graph 
-            var food_value = document.getElementById("Food").innerHTML;
-            console.log(food_value);
-            var total_value = parseFloat(getParams("Total") + food_value)
+            var total_value = parseFloat(getParams("Total") + 3.5)
             var transportation_value = getParams("car")
             var house_value = getParams("house");
+            var food_value = getParams("food");
             var transportGraph = document.getElementById('tg');
             var houseGraph = document.getElementById('hg');
             var foodGraph = document.getElementById('fg');
@@ -174,6 +173,7 @@
             var house = document.getElementById("Household")
             house.innerHTML = house_value;
             var food = document.getElementById("Food")
+            food.innerHTML = food_value;
             var count = (parseFloat(transport.innerHTML) + parseFloat(house.innerHTML) + parseFloat(food.innerHTML)).toFixed(2);
             console.log(count);
             total.innerHTML = count;
