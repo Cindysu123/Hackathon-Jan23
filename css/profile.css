@@ -6,7 +6,6 @@
 
 .top img {
     margin-left: 80px;
-    position: fixed;
     width: 120px;
 }
 
@@ -154,7 +153,9 @@
     z-index: 99;
     overflow: hidden;
 }
-
+.charts .small {
+    height: 300px;
+}
 .diagram .description {
     font-size: 24px;
     color: black;
