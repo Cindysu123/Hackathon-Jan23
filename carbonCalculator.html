@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/calculator.css">
+    <!-- import icon -->
+    <link rel="shortcut icon" href="Image/logo.png" type="image/x-icon" />
 </head>
 
 <body>
@@ -27,7 +29,6 @@
                 <p id="foodHeader" onclick="togglePage('foodPage','housePage')">Food Consumption</p>
             </div>
             <div class="clearfix"></div>
-            <div id="foodPage" style="display:none">insert food calc</div>
             <div id="housePage">
                 <div>
                     <h4>Electricity used in your household:</h4>
@@ -61,17 +62,94 @@
                     </div>
                 </div>
                 <div id="q3" class="clearfix"></div>
+                <br>
+
+                <br>
+                <p id="totalOutput">The total carbon emission you create based on household and transportation is: </p>
+                <div class="btn-block">
+                    <button onclick="calculateTotal()" href="/">Save Changes</button>
+                </div>
             </div>
-            <br>
-
-            <br>
-            <p id="totalOutput">The total carbon emission you create based on household and transportation is: </p>
+            <div id="foodPage" style="display: none;">
+                <div class="content">
+                    <div class="title">
+                        <div class="total">The total carbon emission you save for this week‘s food is:</div>
+                        <i class="num green">3.5</i><i class="tons">tons</i>
+                    </div>
+                    <div class="block">
+                        <div class="date">Wed/Jan 21, 17:00</div>
+                        <div class="left">
+                            <img src="Image/food1.png" alt="">
+                            <p>Biryani Pot</p>
+                        </div>
+                        <div class="right">
+                            <p>Food name: Vegetarian Biryani </p>
+                            <p class="count">Emission count:</p>
+                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="date">Wed/Jan 21, 17:00</div>
+                        <div class="left">
+                            <img src="Image/food2.png" alt="">
+                            <p>Biryani Pot</p>
+                        </div>
+                        <div class="right">
+                            <p>Food name: Vegetarian Biryani </p>
+                            <p class="count">Emission count:</p>
+                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="date">Wed/Jan 21, 17:00</div>
+                        <div class="left">
+                            <img src="Image/food3.png" alt="">
+                            <p>Biryani Pot</p>
+                        </div>
+                        <div class="right">
+                            <p>Food name: Vegetarian Biryani </p>
+                            <p class="count">Emission count:</p>
+                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="date">Wed/Jan 21, 17:00</div>
+                        <div class="left">
+                            <img src="Image/food4.png" alt="">
+                            <p>Biryani Pot</p>
+                        </div>
+                        <div class="right">
+                            <p>Food name: Vegetarian Biryani </p>
+                            <p class="count">Emission count:</p>
+                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="date">Wed/Jan 21, 17:00</div>
+                        <div class="left">
+                            <img src="Image/food5.png" alt="">
+                            <p>Biryani Pot</p>
+                        </div>
+                        <div class="right">
+                            <p>Food name: Vegetarian Biryani </p>
+                            <p class="count">Emission count:</p>
+                            <i class="num"> 1.5 / 5 </i><i>tons of CO2 used</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
-
-    <div class="btn-block">
-        <button onclick="calculateTotal()" href="/">Save Changes</button>
-
+    <!-- footer starts  -->
+    <div class="footer">
+        <div class="info">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
     </div>
+    <!-- footer ends  -->
     </form>
     </div>
 
@@ -92,16 +170,16 @@
 
     //toggle between household and food calculator
     //NOTE: will create separate page for food calculator instead
-    function togglePage(requestedPage, otherPage) {
-        console.log('IN TOGGLE');
-        requestedPage = document.getElementById(requestedPage);
-        otherPage = document.getElementById(otherPage);
-        if (requestedPage.style.display == "none") {
-            console.log('IN IF')
-            requestedPage.style.display = "block";
-            otherPage.style.display = "none";
-        }
-    }
+    // function togglePage(requestedPage, otherPage) {
+    //     console.log('IN TOGGLE');
+    //     requestedPage = document.getElementById(requestedPage);
+    //     otherPage = document.getElementById(otherPage);
+    //     if (requestedPage.style.display == "none") {
+    //         console.log('IN IF')
+    //         requestedPage.style.display = "block";
+    //         requestedPage.className = 'current';
+    //     }
+    // }
 
     //displays subtotal underneath question
     function showValue(questionNumber, carbonTonne) {
@@ -172,6 +250,22 @@
         }
 
     }
+    var house = document.getElementById("houseHeader");
+    var food = document.getElementById("foodHeader");
+    var hp = document.getElementById("housePage");
+    var fp = document.getElementById("foodPage");
+    house.addEventListener("click", function() {
+        house.className = "current";
+        food.className = '';
+        hp.style.display = 'block';
+        fp.style.display = 'none';
+    })
+    food.addEventListener("click", function() {
+        food.className = "current";
+        house.className = '';
+        hp.style.display = 'none';
+        fp.style.display = 'block';
+    })
 </script>
 
 
