@@ -1,9 +1,14 @@
 ## Sky's The Limit
 
-[![Contributors][contributors-shield]][contributors-url]
-[![GitHub language count](https://img.shields.io/github/languages/count/popoway/dont-let-the-n95-fall.svg)](https://github.com/popoway/dont-let-the-n95-fall/search?l=PHP&type=Code)
-[![license](https://img.shields.io/github/license/popoway/dont-let-the-n95-fall.svg)](https://popoway.mit-license.org/)  
+Sky's The Limit — Project created for CUNY Hackathon, Spring 2021
 
-Don't Let The N95 Fall — Class Project for Software Engineering Class, Spring 2020
+## Description
+
+Sky’s The Limit tackles the pervasiveness of climate change by incentivizes users make eco friendly decisions in their daily lives. Our unique star points system grants discounts in our marketplace where companies can advertise services, products and discounts.
+
+![Screen shot of home screen of the game](https://github.com/cindy-MP-2020/Hackathon-Jan23/Image/screenshot.png)
+
+
+Try it here: [Live Demo](https://cindy-mp-2020.github.io/Hackathon-Jan23/)
 
 Live Demo: https://cindy-mp-2020.github.io/Hackathon-Jan23/
