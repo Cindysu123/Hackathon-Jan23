@@ -1,7 +1,7 @@
 ## Sky's The Limit
 
 Sky's The Limit — Project created for CUNY Hackathon, Spring 2021  
-Try it here: [Live Demo](https://cindy-mp-2020.github.io/Hackathon-Jan23/)
+Try it here: [Live Demo](https://cindysu123.github.io/Hackathon-Jan23/)
 
 ## Description
 
